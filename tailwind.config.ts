@@ -12,7 +12,8 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'plant-pattern': 'url("../public/plant-bg.svg")',
+          'plant-pattern': 'url("../public/plant-bg.svg")',
+          'plant-pattern-gray': 'url("../public/plant-bg-gray.svg")',
       },
       colors: {
         'plant-green': '#2C7F5F'
