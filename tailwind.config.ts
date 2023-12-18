@@ -16,7 +16,8 @@ const config: Config = {
           'plant-pattern-gray': 'url("../public/plant-bg-gray.svg")',
       },
       colors: {
-        'plant-green': '#2C7F5F'
+        'plant-green': '#2C7F5F',
+        'plant-green-dark': '#205D46',
       },
     },
   },

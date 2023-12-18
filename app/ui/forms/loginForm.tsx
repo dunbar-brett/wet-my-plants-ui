@@ -1,15 +1,10 @@
-import {
-  AtSymbolIcon,
-  KeyIcon,
-  ExclamationCircleIcon,
-} from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
-// import { Button } from './button';
+import { Button } from './button';
 
 export default function LoginForm() {
   return (
-    <form className="space-y-3 md:space-y-5">
-      <div className="flex-1 rounded-lg bg-gray-500 p-4 md:p-8">
+    <form className="space-y-3 md:space-y-5 lg:w-[40rem] mx-auto">
+      <div className="flex-1 rounded-lg bg-gray-100 p-4 md:p-8">
         <h1 className="mb-3 text-xl md:text-2xl">
           Please log in to continue.
         </h1>
@@ -23,14 +18,13 @@ export default function LoginForm() {
             </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-2 md:py-[9px] pl-4 md:pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-2 md:py-[9px] pl-3 text-sm outline-2 placeholder:text-gray-500"
                 id="email"
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
                 required
               />
-              <AtSymbolIcon className="pointer-events-none absolute left-2 md:left-3 top-1/2 h-[14px] md:h-[18px] w-[14px] md:w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
           <div className="mt-4">
@@ -42,7 +36,7 @@ export default function LoginForm() {
             </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-2 md:py-[9px] pl-4 md:pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-2 md:py-[9px] pl-3 text-sm outline-2 placeholder:text-gray-500"
                 id="password"
                 type="password"
                 name="password"
@@ -50,11 +44,12 @@ export default function LoginForm() {
                 required
                 minLength={6}
               />
-              <KeyIcon className="pointer-events-none absolute left-2 md:left-3 top-1/2 h-[14px] md:h-[18px] w-[14px] md:w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
         </div>
-        <LoginButton />
+        <div className="flex justify-center items-center">
+          <LoginButton />
+        </div>
         <div className="flex h-8 items-end space-x-1">
           {/* Add form errors here */}
         </div>
@@ -65,9 +60,9 @@ export default function LoginForm() {
 
 function LoginButton() {
   return (
-    // <Button className="mt-4 w-full">
-    //   Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-    // </Button>
-    <button type="button">Login!</button>
+    <Button className="flex justify-center items-center mt-4 w-full lg:w-[30%]">
+      <span>Log in</span>
+      <ArrowRightIcon className="h-5 w-5 text-gray-50 ml-2" />
+    </Button>
   );
 }
