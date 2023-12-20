@@ -20,7 +20,7 @@ export default function RootLayout({
             <SideNav />
           </div>
           <div className="flex-grow md:overflow-y-auto">
-            <div className="min-h-[32%] bg-plant-green bg-plant-pattern flex justify-center items-center md:overflow-y-auto">
+            <div className="min-h-[18%] bg-plant-green bg-plant-pattern flex justify-center items-center md:overflow-y-auto">
               <Image
                 src="/hero-image.svg"
                 alt="Wet My Plants Logo"
@@ -29,9 +29,9 @@ export default function RootLayout({
                 priority
               ></Image>
             </div>
-            <div className="flex-grow p-6 md:overflow-y-auto md:p-12 bg-gray-200 bg-plant-pattern-gray">
+            <main className="flex min-h-screen flex-col p-6 md:overflow-y-auto md:p-12 bg-gray-200 bg-plant-pattern-gray">
               {children}
-            </div>
+            </main>
           </div>
         </div>
       </body>
