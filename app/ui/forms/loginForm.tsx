@@ -24,11 +24,12 @@ export default function LoginForm() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(formData);
     // TODO: add form validation logic here before submitting
   };
 
   return (
-    <form className='space-y-3 md:space-y-5 w-96 mx-auto'>
+    <form className='space-y-3 md:space-y-5 w-96 mx-auto' onSubmit={handleSubmit}>
       <div className='flex-1 rounded-lg bg-transparent backdrop-blur-[30px] 
                       border-[2px] border-white border-opacity-20 shadow-md 
                       text-white p-8'>
@@ -64,7 +65,6 @@ interface InputProps {
 function EmailInput({name, placeholder, handleChange}: InputProps) {
   return (
     <Input
-      className='input-primary'
       id={name}
       type={name}
       name={name}
@@ -80,7 +80,6 @@ function EmailInput({name, placeholder, handleChange}: InputProps) {
 function PasswordInput({name, placeholder, minLength, handleChange}: InputProps) {
   return (
     <Input
-      className='input-primary'
       type={name}
       name={name}
       placeholder={placeholder}

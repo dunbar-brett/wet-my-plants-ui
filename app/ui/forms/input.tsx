@@ -12,7 +12,7 @@ export function Input({ children, className, ...rest }: InputProps) {
         {...rest}
         className={clsx(
             `bg-transparent border-[2px] border-white border-opacity-20 rounded-3xl 
-             text-white text-base h-full outline-none p-5 w-full placeholder:text-white`,
+             text-white text-base h-full outline-none p-5 w-full placeholder:text-white focus:bg-transparent autofill:bg-gray-400`,
             className,
         )}
         >
