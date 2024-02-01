@@ -1,56 +1,52 @@
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
+'use client'
+import { ArrowRightIcon, LockClosedIcon, UserIcon } from '@heroicons/react/20/solid';
+import React, { useState, FormEvent, ChangeEvent } from 'react';
 import { Button } from './button';
+import { Input } from './input';
+
+
+interface SignUpFormData {
+  email: string;
+  password: string;
+}
+
 
 export default function LoginForm() {
+  const [formData, setFormData] = useState<SignUpFormData>({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // TODO: add form validation logic here before submitting
+  };
+
   return (
-    <form className="space-y-3 md:space-y-5 lg:w-[40rem] mx-auto">
-      <div className="flex-1 rounded-lg bg-gray-100 p-4 md:p-8">
-        <h1 className="mb-3 text-xl md:text-2xl">
+    <form className='space-y-3 md:space-y-5 w-[26rem] mx-auto'>
+      <div className='flex-1 rounded-lg bg-transparent backdrop-blur-[30px] 
+                      border-[2px] border-white border-opacity-20 shadow-md 
+                      text-white p-4 md:p-8'>
+        <h1 className='mb-3 text-xl md:text-2xl'>
           Please log in to continue.
         </h1>
-        <div className="w-full">
-          <div>
-            <label
-              className="mb-3 mt-5 block text-xs md:text-sm font-medium text-gray-900"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-2 md:py-[9px] pl-3 text-sm outline-2 placeholder:text-gray-500"
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Enter your email address"
-                required
-              />
-            </div>
+        <div className='w-full'>
+          <div className='h-[50px] mt-[30px] mb-[10px]'>
+            <EmailInput name='email' placeholder='Email' handleChange={handleChange} />
           </div>
-          <div className="mt-4">
-            <label
-              className="mb-3 mt-5 block text-xs md:text-sm font-medium text-gray-900"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-2 md:py-[9px] pl-3 text-sm outline-2 placeholder:text-gray-500"
-                id="password"
-                type="password"
-                name="password"
-                placeholder="Enter password"
-                required
-                minLength={6}
-              />
-            </div>
+          <div className='h-[50px] mt-[30px] mb-[10px]'>
+            <PasswordInput name='password' placeholder='Password' minLength={6} handleChange={handleChange} />
           </div>
         </div>
-        <div className="flex justify-center items-center">
+        <div className='flex justify-center items-center'>
           <LoginButton />
         </div>
-        <div className="flex h-8 items-end space-x-1">
+        <div className='flex h-8 items-end space-x-1'>
           {/* Add form errors here */}
         </div>
       </div>
@@ -58,11 +54,53 @@ export default function LoginForm() {
   );
 }
 
+interface InputProps {
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
+  name: string;
+  placeholder: string;
+  minLength?: number;
+}
+
+function EmailInput({name, placeholder, handleChange}: InputProps) {
+  return (
+    <Input
+      className='mb-3 mt-5'
+      id={name}
+      type={name}
+      name={name}
+      placeholder={placeholder}
+      onChange={handleChange}
+      required
+    >
+      <UserIcon className='icon-primary translate-y-[50%] md:right-[44px]
+                           right-[27px] md:top-[25%] top-[22%]' />
+    </Input>
+  );
+}
+
+function PasswordInput({name, placeholder, minLength, handleChange}: InputProps) {
+  return (
+    <Input
+      className='mb-3 mt-5'
+      id={name}
+      type={name}
+      name={name}
+      placeholder={placeholder}
+      minLength={minLength}
+      onChange={handleChange}
+      required
+    >
+      <LockClosedIcon className='icon-primary translate-y-[50%] md:right-[44px]
+                                 right-[27px] md:top-[25%] top-[22%]' />
+    </Input>
+  );
+}
+
 function LoginButton() {
   return (
-    <Button className="flex justify-center items-center mt-4 w-full lg:w-[30%]">
+    <Button className='flex justify-center items-center mt-4 w-full'>
       <span>Log in</span>
-      <ArrowRightIcon className="h-5 w-5 text-gray-50 ml-2" />
+      <ArrowRightIcon className='h-5 w-5 text-gray-50 ml-2' />
     </Button>
   );
 }
