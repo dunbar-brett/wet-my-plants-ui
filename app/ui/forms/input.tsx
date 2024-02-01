@@ -11,7 +11,8 @@ export function Input({ children, className, ...rest }: InputProps) {
         <input
         {...rest}
         className={clsx(
-            `peer block w-full rounded-md border border-gray-200 py-2 md:py-[9px] pl-3 text-sm outline-2 placeholder:text-gray-500`,
+            `bg-transparent border-[2px] border-white border-opacity-20 rounded-3xl 
+             text-white text-base h-full outline-none p-5 w-full placeholder:text-white`,
             className,
         )}
         >

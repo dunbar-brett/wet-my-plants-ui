@@ -28,18 +28,18 @@ export default function LoginForm() {
   };
 
   return (
-    <form className='space-y-3 md:space-y-5 w-[26rem] mx-auto'>
+    <form className='space-y-3 md:space-y-5 w-96 mx-auto'>
       <div className='flex-1 rounded-lg bg-transparent backdrop-blur-[30px] 
                       border-[2px] border-white border-opacity-20 shadow-md 
-                      text-white p-4 md:p-8'>
-        <h1 className='mb-3 text-xl md:text-2xl'>
+                      text-white p-8'>
+        <h1 className='mb-3 text-xl md:text-2xl text-center'>
           Please log in to continue.
         </h1>
-        <div className='w-full'>
-          <div className='h-[50px] mt-[30px] mb-[10px]'>
+        <div className=''>
+          <div className='w-full h-[50px] mt-[30px] mb-[10px] relative'>
             <EmailInput name='email' placeholder='Email' handleChange={handleChange} />
           </div>
-          <div className='h-[50px] mt-[30px] mb-[10px]'>
+          <div className='h-[50px] mt-[30px] mb-[10px] relative'>
             <PasswordInput name='password' placeholder='Password' minLength={6} handleChange={handleChange} />
           </div>
         </div>
@@ -64,7 +64,7 @@ interface InputProps {
 function EmailInput({name, placeholder, handleChange}: InputProps) {
   return (
     <Input
-      className='mb-3 mt-5'
+      className='input-primary'
       id={name}
       type={name}
       name={name}
@@ -72,8 +72,7 @@ function EmailInput({name, placeholder, handleChange}: InputProps) {
       onChange={handleChange}
       required
     >
-      <UserIcon className='icon-primary translate-y-[50%] md:right-[44px]
-                           right-[27px] md:top-[25%] top-[22%]' />
+      <UserIcon className='icon-primary' />
     </Input>
   );
 }
@@ -81,8 +80,7 @@ function EmailInput({name, placeholder, handleChange}: InputProps) {
 function PasswordInput({name, placeholder, minLength, handleChange}: InputProps) {
   return (
     <Input
-      className='mb-3 mt-5'
-      id={name}
+      className='input-primary'
       type={name}
       name={name}
       placeholder={placeholder}
@@ -90,8 +88,7 @@ function PasswordInput({name, placeholder, minLength, handleChange}: InputProps)
       onChange={handleChange}
       required
     >
-      <LockClosedIcon className='icon-primary translate-y-[50%] md:right-[44px]
-                                 right-[27px] md:top-[25%] top-[22%]' />
+      <LockClosedIcon className='icon-primary' />
     </Input>
   );
 }

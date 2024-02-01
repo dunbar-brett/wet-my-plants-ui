@@ -4,8 +4,9 @@
 
 @layer components {
   .icon-primary {
-    @apply h-5 w-5 text-black ml-2 absolute;
+    @apply h-5 w-5 text-white ml-2 absolute translate-y-2 right-4 top-1;
   }
+
 }
 
 /* :root {
