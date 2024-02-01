@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, FormEvent, ChangeEvent } from 'react';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
-import { Button } from './button';
+import { Button } from '../formItems/button';
 
 // interface SignUpFormProps {
 //   onSubmit: (formData: SignUpFormData) => void;

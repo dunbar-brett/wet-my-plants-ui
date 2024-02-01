@@ -1,8 +1,8 @@
 'use client'
 import { ArrowRightIcon, LockClosedIcon, UserIcon } from '@heroicons/react/20/solid';
 import React, { useState, FormEvent, ChangeEvent, FocusEvent} from 'react';
-import { Button } from './button';
-import { Input } from './input';
+import { Button } from '../formItems/button';
+import { Input } from '../formItems/input';
 import { validateEmail, } from '../../utils/validators';
 
 
@@ -106,12 +106,11 @@ export default function LoginForm() {
           Please log in to continue.
         </h1>
 
-        <div className='w-full h-12 mt-16 mb-3 relative'>
-          <InputBox name='email' placeholder='Email' handleChange={handleChange} handleBlur={handleBlur} />
-        </div>
-        <div className='w-full h-12 mt-14 mb-3 relative'>
-          <InputBox name='password' placeholder='Password' minLength={6} handleChange={handleChange} handleBlur={handleBlur} />
-        </div>
+        {['email', 'password'].map((name) => (
+          <div key={name} className='w-full h-12 mt-16 mb-3 relative'>
+            <InputBox name={name} placeholder={name} handleChange={handleChange} handleBlur={handleBlur} />
+          </div>
+        ))}
 
         <div className='flex justify-center items-center'>
           <LoginButton />
@@ -147,37 +146,6 @@ function InputBox({name, placeholder, handleChange, handleBlur}: InputProps) {
     </Input>
   );
 }
-
-// function EmailInput({name, placeholder, handleChange, handleBlur}: InputProps) {
-//   return (
-//     <Input
-//       id={name}
-//       type={name}
-//       name={name}
-//       placeholder={placeholder}
-//       onChange={handleChange}
-//       onBlur={handleBlur}
-//       required
-//     >
-//       <UserIcon className='icon-primary' />
-//     </Input>
-//   );
-// }
-
-// function PasswordInput({name, placeholder, minLength, handleChange}: InputProps) {
-//   return (
-//     <Input
-//       type={name}
-//       name={name}
-//       placeholder={placeholder}
-//       minLength={minLength}
-//       onChange={handleChange}
-//       required
-//     >
-//       <LockClosedIcon className='icon-primary' />
-//     </Input>
-//   );
-// }
 
 function LoginButton() {
   return (

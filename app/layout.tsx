@@ -16,9 +16,9 @@ export default function RootLayout({
         {/* <div className='w-full flex-none md:w-64'>Side Nav goes here</div>
         <div className='flex-grow p-6 md:overflow-y-auto md:p-12'>{children}</div> */}
         <div className='flex h-screen flex-col md:flex-row md:overflow-hidden'>
-          <div className='w-full md:w-64'>
+          <nav className='w-full md:w-64'>
             <SideNav />
-          </div>
+          </nav>
           <div className='flex-grow md:overflow-y-auto'>
             <header className='min-h-[18%] bg-plant-green bg-plant-pattern bg-repeat-space
                             bg-[size:5rem_2rem] flex justify-center items-center md:overflow-y-auto'>
