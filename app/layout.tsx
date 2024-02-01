@@ -20,7 +20,7 @@ export default function RootLayout({
             <SideNav />
           </div>
           <div className='flex-grow md:overflow-y-auto'>
-            <div className='min-h-[18%] bg-plant-green bg-plant-pattern bg-repeat-space
+            <header className='min-h-[18%] bg-plant-green bg-plant-pattern bg-repeat-space
                             bg-[size:5rem_2rem] flex justify-center items-center md:overflow-y-auto'>
               <Image
                 src='/hero-image.svg'
@@ -29,8 +29,8 @@ export default function RootLayout({
                 height={24}
                 priority
               ></Image>
-            </div>
-            <main className='flex min-h-screen flex-col p-6 md:overflow-y-auto md:p-12 bg-gray-400
+            </header>
+            <main className='flex min-h-[82%] flex-col p-6 md:p-12 bg-gray-400
                              bg-plant-pattern-gray bg-repeat-space bg-[size:5rem_2rem]'>
               {children}
             </main>
